@@ -71,12 +71,12 @@ function eachChoiceCriteria(chars) {
 
 function baseChoiceCriteria(chars) {
     numTests = 0;
-    numChars = 3;
+    // numChars = 3;
     var result = []
     chars.forEach(C => {
         numTests += C.length;
     });
-    numTests -= (numChars - 1);
+    numTests -= (chars - 1);
     console.log("test case 1:", numTests)
     var baseTest = [];
     chars.forEach(C => {
@@ -90,7 +90,7 @@ function baseChoiceCriteria(chars) {
         for (blockNum = 1; blockNum < C.length; blockNum++) {
             currentTest[charNum] = C[blockNum];
             console.log(currentTest)
-            result.push(currentTest)
+            result.push(JSON.parse(JSON.stringify(currentTest)))
         }
         charNum++;
     })
